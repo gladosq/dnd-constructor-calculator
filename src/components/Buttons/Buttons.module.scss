@@ -1,0 +1,90 @@
+.list {
+  list-style-type: none;
+  margin: 4px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  grid-template-areas:
+          "button1 button2 button3"
+          "button4 button5 button6"
+          "button7 button8 button9"
+          "button10 button10 button11";
+}
+
+.item {
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E2E3E5;
+    border-radius: 6px;
+    padding: 20px;
+    width: 100%;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 600;
+    background: transparent;
+    outline: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+
+    &:hover {
+      outline: 1px solid $basic-blue;
+      border: 1px solid $basic-blue
+    }
+
+    &:active {
+      background: $basic-blue;
+      border: 1px solid $basic-blue;
+      color: white;
+    }
+  }
+
+  &:nth-child(1) {
+    grid-area: button1;
+  }
+
+  &:nth-child(2) {
+    grid-area: button2;
+  }
+
+  &:nth-child(3) {
+    grid-area: button3;
+  }
+
+  &:nth-child(4) {
+    grid-area: button4;
+  }
+
+  &:nth-child(5) {
+    grid-area: button5;
+  }
+
+  &:nth-child(6) {
+    grid-area: button6;
+  }
+
+  &:nth-child(7) {
+    grid-area: button7;
+  }
+
+  &:nth-child(8) {
+    grid-area: button8;
+  }
+
+  &:nth-child(9) {
+    grid-area: button9;
+  }
+
+  &:nth-child(10) {
+    grid-area: button10;
+  }
+
+  &:nth-child(11) {
+    grid-area: button11;
+  }
+}
+
+.itemRuntime {
+  pointer-events: none;
+}

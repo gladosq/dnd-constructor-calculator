@@ -1,0 +1,26 @@
+.title {
+  margin: 0;
+}
+
+.itemDefault {
+  transition: 0.3s all ease-in-out;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  height: 474px;
+  border-radius: 4px;
+}
+
+.itemActive {
+  background: #F0F9FF;
+}
+
+.columnWrapper {
+  transition: 0.2s ease-in-out;
+}
+
+.columnWrapperRuntime {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
