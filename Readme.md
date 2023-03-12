@@ -13,6 +13,7 @@
 - [x] Собрать билд – `npm run build`
 
 ### Задеплоенная версия
-#### [dnd-calculator.netlify.app](https://dnd-calculator.netlify.app/)
+[dnd-calculator.netlify.app](https://dnd-calculator.netlify.app)
 
+### Превью
 ![alt-text](https://github.com/gladosq/dnd-constructor-calculator/blob/main/public/preview-calc.gif)
