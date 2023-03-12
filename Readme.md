@@ -15,4 +15,4 @@
 ### Задеплоенная версия
 #### [dnd-calculator.netlify.app](https://dnd-calculator.netlify.app/)
 
-![alt-text]()
+![alt-text](https://github.com/gladosq/dnd-constructor-calculator/blob/main/public/preview-calc.gif)
