@@ -9,7 +9,7 @@ function App() {
     return (
         <Routes location={location}>
             <Route path='/' element={<DndCalc/>}/>
-            <Route path="/404" element={<NotFoundPage/>}/>
+            <Route path='/404' element={<NotFoundPage/>}/>
             <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
     )

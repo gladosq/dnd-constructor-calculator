@@ -1,26 +1,16 @@
-//.ant-spin-dot-item {
-//  background: $basic-pink !important;
-//}
-//
-//.ant-segmented {
-//  background: transparent !important;
-//}
-//
 .ant-segmented-item {
   border: 1px solid transparent;
 }
-//
+
 .ant-segmented-group {
-  //gap: 6px;
   height: 32px;
 }
-//
+
 .ant-segmented-item-label {
-  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
   font-size: 13px !important;
   font-weight: 700;
   padding-top: 2px !important;
-  //transition: 0.2s ease-in;
   display: flex !important;
   align-items: center !important;
 }
@@ -29,29 +19,11 @@
   display: flex;
   align-items: center;
 }
-//
-.ant-segmented-item-selected {
-  //background: $basic-pink !important;
-  border: 1px solid #E2E3E5;
 
-  .ant-segmented-item-label {
-    //color: $basic-white !important;
-  }
+.ant-segmented-item-selected {
+  border: 1px solid #e2e3e5;
 }
-//
+
 .ant-segmented-thumb {
-  border: 1px solid #E2E3E5;
-  //background-color: red;
-  //border-radius: 22px !important;
+  border: 1px solid #e2e3e5;
 }
-//
-//.ant-form-item-required,
-//.ant-input {
-//  font-family: 'Montserrat', Arial, sans-serif;
-//}
-//
-//.ant-form-item-label {
-//  padding-bottom: 6px !important;
-//  margin-bottom: -4px !important;
-//}
-//

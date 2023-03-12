@@ -14,15 +14,11 @@ const Container = styled.div`
 function DndCalc(): JSX.Element {
     const [dndBlocks, setDndBlocks] = useState<IDndData>(initialDndData);
 
+    /*--- Логика dnd библиотеки ---*/
     const onDragEnd = (result: any) => {
-        // document.body.style.color = 'blue';
-        // document.body.style.backgroundColor = 'transparent';
-
         const {destination, source, draggableId} = result;
 
-        if (!destination) {
-            return;
-        }
+        if (!destination) return;
 
         if (destination.droppableId === source.droppableId &&
             destination.index === source.index) {
@@ -47,7 +43,7 @@ function DndCalc(): JSX.Element {
                     ...dndBlocks.columns,
                     [newColumn.id]: newColumn
                 }
-            }
+            };
 
             setDndBlocks(newState);
             return;
@@ -66,7 +62,7 @@ function DndCalc(): JSX.Element {
         const newFinish = {
             ...finish,
             blockIds: finishBlockIds
-        }
+        };
 
         const newState = {
             ...dndBlocks,
@@ -80,29 +76,10 @@ function DndCalc(): JSX.Element {
         setDndBlocks(newState);
     };
 
-
-    console.log('rerender:');
-
-    // const onDragStart = () => {
-    //     // document.body.style.color = 'orange';
-    //     document.body.style.transition = 'background-color 0.2s ease'
-    // }
-
-    // const onDragUpdate = (update: any) => {
-    //     const {destination} = update;
-    //
-    //     const opacity = destination
-    //         ? destination.index / Object.keys(dndBlocks.components).length
-    //         : 0;
-    //     // document.body.style.backgroundColor = `rgba(153, 123, 56, ${opacity})`;
-    // }
-
     return (
         <main className='page'>
             <Switcher/>
             <DragDropContext
-                // onDragStart={onDragStart}
-                // onDragUpdate={onDragUpdate}
                 onDragEnd={onDragEnd}
             >
                 <Container>

@@ -2,17 +2,15 @@ import {create} from 'zustand';
 
 interface SwitcherState {
     switcher: string;
-    firstVariable: number;
-    secondVariable: number;
     operand: string;
     result: number;
-    displayed: number;
+    displayed: number | string;
+    isDisplayActive: boolean;
     setSwitcher: (value: string) => void;
-    setFirstVariable: (value: number) => void;
-    setSecondVariable: (value: number) => void;
     setOperand: (value: string) => void;
     setResult: (value: number) => void;
-    setDisplayed: (value: number) => void;
+    setDisplayed: (value: number | string) => void;
+    setIsDisplayActive: (value: boolean) => void;
 }
 
 const useStore = create<SwitcherState>((set) => ({
@@ -22,12 +20,23 @@ const useStore = create<SwitcherState>((set) => ({
     operand: '',
     result: 0,
     displayed: 0,
-    setSwitcher: (value) => set(() => ({switcher: value})),
-    setFirstVariable: (value) => set(() => ({firstVariable: value})),
-    setSecondVariable: (value) => set(() => ({secondVariable: value})),
+    isDisplayActive: true,
+    setSwitcher: (value) => set(() => {
+        if (value === 'Constructor') {
+            return {
+                displayed: 0,
+                result: 0,
+                operand: '',
+                switcher: value
+            }
+        }
+
+        return {switcher: value}
+    }),
     setOperand: (value) => set(() => ({operand: value})),
     setResult: (value) => set(() => ({result: value})),
-    setDisplayed: (value) => set(() => ({displayed: value}))
+    setDisplayed: (value) => set(() => ({displayed: value})),
+    setIsDisplayActive: (value) => set(() => ({isDisplayActive: value}))
 }));
 
 export default useStore;

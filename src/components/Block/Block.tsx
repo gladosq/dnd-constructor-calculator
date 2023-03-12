@@ -13,6 +13,7 @@ import {IDndComponent} from '../../types/IDndData';
 interface IBlockProps {
     index: number;
     block: IDndComponent;
+    isDisabledToDrag: boolean;
 }
 
 const Container = styled.div`
@@ -22,8 +23,8 @@ const Container = styled.div`
   margin-bottom: 10px;
 `;
 
-function Block({block, index}: IBlockProps): JSX.Element {
-    const {switcher, setSwitcher} = useStore();
+function Block({block, index, isDisabledToDrag}: IBlockProps): JSX.Element {
+    const {switcher} = useStore();
 
     const getCalcComponent = (name: string) => {
         switch(name) {
@@ -34,7 +35,7 @@ function Block({block, index}: IBlockProps): JSX.Element {
             case 'Buttons':
                 return <Buttons isConstructor={switcher === 'Constructor'}/>
             case 'Equal':
-                return <Equal/>
+                return <Equal isConstructor={switcher === 'Constructor'}/>
         }
     };
 
@@ -42,7 +43,7 @@ function Block({block, index}: IBlockProps): JSX.Element {
         <Draggable
             draggableId={block.id}
             index={index}
-            isDragDisabled={switcher === 'Runtime'}
+            isDragDisabled={switcher === 'Runtime' || isDisabledToDrag}
         >
             {(provided, snapshot) => {
                 const itemClasses = cn(s.itemDefault, {
@@ -54,10 +55,8 @@ function Block({block, index}: IBlockProps): JSX.Element {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
-                        // isDragging={snapshot.isDragging}
                     >
                         <div className={itemClasses}>
-                            {/*{props.block.content}*/}
                             {getCalcComponent(block.content)}
                         </div>
                     </Container>

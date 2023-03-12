@@ -12,15 +12,37 @@
 }
 
 .itemActive {
-  background: #F0F9FF;
+  background: #f0f9ff;
 }
 
 .columnWrapper {
   transition: 0.2s ease-in-out;
+  position: relative;
 }
 
 .columnWrapperRuntime {
   opacity: 0.2;
   pointer-events: none;
+}
+
+.placeholderWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transform: scale(0.9);
+}
+
+.columnPlaceholder {
+  .placeholderWrapper {
+    opacity: 1;
+    transition: 0.3s ease-out;
+    transform: scale(1);
+
+  }
 }
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Droppable} from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import cn from 'classnames';
@@ -6,6 +6,7 @@ import Block from '../Block/Block';
 import s from './Column.module.scss';
 import {IDndColumn, IDndComponent} from '../../types/IDndData';
 import useStore from '../../store/calc';
+import Placeholder from '../Placeholder/Placeholder';
 
 interface IColumnProps {
     column: IDndColumn,
@@ -25,10 +26,22 @@ const BlockList = styled.div`
 `;
 
 function Column({column, blocks}: IColumnProps): JSX.Element {
-    const {switcher, setSwitcher} = useStore();
+    const {switcher, setIsDisplayActive} = useStore();
+
+    useEffect(() => {
+        if (column.id === 'constructor') {
+            setIsDisplayActive(column.blockIds.includes('block-1'));
+        }
+    }, [column]);
 
     const columnClasses = cn(s.columnWrapper, {
-        [s.columnWrapperRuntime]: column.id === 'constructor' && switcher === 'Runtime'
+        /*--- Класс, блокирующий колонку с конструктуром,
+         если выбран режим Runtime ---*/
+        [s.columnWrapperRuntime]: column.id === 'constructor' && switcher === 'Runtime',
+        /*--- Класс, отображающий плейсхолдер в колонке
+        по условиям, что это колонка для калькулятора
+        и у него внутри нет блоков ---*/
+        [s.columnPlaceholder]: column.id === 'calc' && !column.blockIds.length
     });
 
     return (
@@ -52,8 +65,12 @@ function Column({column, blocks}: IColumnProps): JSX.Element {
                                             index={index}
                                             key={item.id}
                                             block={item}
+                                            isDisabledToDrag={snapshot.isUsingPlaceholder}
                                         />
                                     ))}
+                                    <div className={s.placeholderWrapper}>
+                                        <Placeholder/>
+                                    </div>
                                     {provided.placeholder}
                                 </div>
                             </BlockList>

@@ -8,19 +8,12 @@ interface IOperationsProps {
 }
 
 export default function Operations({isConstructor}: IOperationsProps) {
-    const {setResult, displayed, setDisplayed, operand, setOperand} = useStore();
+    const {setResult, displayed, setOperand} = useStore();
 
     const buttonHandler = (operandValue: string) => {
-        
-        console.log('operand:', operand);
-
-        // setSecondVariable(firstVariable);
         setOperand(operandValue);
-        setResult(displayed);
-        // setDisplayed(0);
+        setResult(Number(displayed));
     };
-
-
 
     const itemClasses = cn(s.item, {
         [s.itemRuntime]: isConstructor

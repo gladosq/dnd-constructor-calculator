@@ -1,0 +1,1 @@
+export const isNumberInfinity = (number: number | string) => number === Infinity ? 0 : number;

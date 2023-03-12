@@ -1,76 +1,18 @@
 body {
   margin: 0 auto;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100%;
   max-width: 700px;
   background: white;
-  font-family: 'Montserrat', Arial, sans-serif;
-  color: black;
-}
-
-a {
-  color: black;
-  text-decoration: none;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: $basic-black;
 }
 
 .page {
   width: 550px;
 }
 
-//.page__loader {
-//  width: 100vw;
-//  height: 100vh;
-//  display: flex;
-//  flex-direction: column;
-//  justify-content: center;
-//  align-items: center;
-//}
-//
-//.dishes__loader {
-//  margin: 140px auto 300px;
-//}
-//
-//.page__main {
-//  min-height: 100%;
-//  min-width: 100%;
-//  overflow: hidden;
-//}
-//
-//.page__caption {
-//  @include container;
-//  opacity: 0.5;
-//  font-size: 12px;
-//  margin-bottom: 40px;
-//  text-align: center;
-//  width: auto;
-//}
-
 .page__not-found {
-  text-align: left;
-  //padding-left: 20px;
-  //padding-right: 20px;
+  text-align: center;
   padding-top: 100px;
 }
-
-/*--- router animation ---*/
-//.fade-enter {
-//  opacity: 0;
-//  transform: translate(0, 25px);
-//  z-index: 1;
-//}
-//.fade-enter.fade-enter-active {
-//  opacity: 1;
-//  transform: translate(0, 0);
-//
-//  transition: opacity 250ms ease-out, transform 300ms ease;
-//}
-//.fade-exit {
-//  opacity: 1;
-//  transform: translate(0, 0);
-//}
-//.fade-exit.fade-exit-active {
-//  opacity: 0;
-//  transform: translate(0, 30px);
-//
-//  transition: opacity 250ms ease-out, transform 300ms ease;
-//}
